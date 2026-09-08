@@ -15,8 +15,8 @@ def build_and_reason(domain: str, entity_names: list[str]) -> str:
                 domain = [Snake]
                 range = [Food]
             
-            somethingA = Thing("ABC")
-            somethingB = Thing("XYZ")
+            somethingA = Thing("ABC", namespace=onto)
+            somethingB = Thing("XYZ", namespace=onto)
             somethingA.eats.append(somethingB)
 
     elif domain == "technology":
@@ -28,8 +28,8 @@ def build_and_reason(domain: str, entity_names: list[str]) -> str:
                 domain = [Language]
                 range = [OperatingSystem]
             
-            somethingA = Thing("ABC")
-            somethingB = Thing("XYZ")
+            somethingA = Thing("ABC", namespace=onto)
+            somethingB = Thing("XYZ", namespace=onto)
             somethingA.runsOn.append(somethingB)
     else:
         return f"エラー: 未対応のドメイン '{domain}' です。"
