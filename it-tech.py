@@ -25,9 +25,9 @@ with it_onto:
     # インスタンス名は意味を持たない ABC / XYZ に設定
     somethingA = Thing("ABC")
     somethingB = Thing("XYZ")
-    somethingA.runsOn.append(somethingB)
 
     if USE_REASONER:
+        somethingA.runsOn.append(somethingB)
         sync_reasoner(it_onto)
         print(">>> [SYSTEM] オントロジー推論（sync_reasoner）を実行しました。")
     else:

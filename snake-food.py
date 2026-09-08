@@ -24,9 +24,9 @@ with bio_onto:
 
     somethingA = Thing("ABC")
     somethingB = Thing("XYZ")
-    somethingA.eats.append(somethingB)
 
     if USE_REASONER:
+        somethingA.eats.append(somethingB)
         sync_reasoner(bio_onto)
         print(">>> [SYSTEM] オントロジー推論（sync_reasoner）を実行しました。")
     else:
