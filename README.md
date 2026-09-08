@@ -1,10 +1,11 @@
+# 1. Goal
 HermiT 理由付けエンジン（Owlready2）による OWL オントロジーの論理推論と、LangGraph / Ollama（`llama3.2:3b`）によるテキスト記述・生成を組み合わせた **Neuro-Symbolic AI エージェント** の実験リポジトリです。
 
 シンボリックAI（論理推論）によって未定義の個体（`Thing`）の概念（クラス）を動的に確定させ、その分類情報に基づいて LLM がコンテキストに沿った表現を自動生成します。
 
 ---
 
-## 概要 (Overview)
+# 2. Overview
 
 本プロジェクトでは、以下の2つのドメインにおける論理推論（`sync_reasoner`）の有無による LLM の生成結果の挙動・変化を検証します。
 
@@ -20,9 +21,9 @@ HermiT 理由付けエンジン（Owlready2）による OWL オントロジー�
 
 ---
 
-## セットアップ (Setup)
+# 3. Setup
 
-### 1. 必要パッケージのインストール
+### 3-1. 必要パッケージのインストール
 
 HermiT 推論器の実行には Java Runtime Environment (JRE) が必要です。
 
@@ -34,12 +35,12 @@ apt-get update && apt-get install -y default-jre
 pip install owlready2 langchain-ollama langchain-core langchain langgraph
 ```
 
-### 2. 前提環境
+### 3-2. 前提環境
 
 * Kubernetes クラスタ内、またはローカル環境で `svc-ollama`（Port: 11434）が稼働していること。
 * Ollama に `llama3.2:3b` モデルがロードされていること。
 
-### 3. 実行方法 (Usage)
+# 4. Usage
 
 #### コード構成 (Code Structure)
 - snake-food.py: 生物学的な捕食関係（Snake - eats -> Food）の記述・推論サンプル。
@@ -58,8 +59,8 @@ python3 it-tech.py
 ※ スクリプト内の USE_REASONER = True / False フラグを切り替えることで、推論の有無による比較が可能です。
 
 
-### 4. 実行結果例 (Execution Results)
-### 4-1. snake-food.py (生物ドメイン)
+# 5. Execution Results
+### 5-1. snake-food.py (生物ドメイン)
 #### 推論あり (USE_REASONER = True)
 HermiT により ABC が Snake、XYZ が Food に再分類（Reparenting）され、LLM はヘビと食物の関係性として文章を生成します。
 ```
@@ -107,7 +108,7 @@ ABCとXYZは、一緒に遊びます。ABCはXYZを楽しみます。
 ABCとXYZは、世界を楽しみます。
 ```
 
-### 4-2. it-tech.py (IT/技術ドメイン)
+### 5-2. it-tech.py (IT/技術ドメイン)
 #### 推論あり (USE_REASONER = True)
 HermiT により ABC が Language、XYZ が OperatingSystem に分類されます。
 ```
