@@ -155,3 +155,12 @@ XYZは、美しい緑の花です。XYZは、空気を浄化して、地球を�
 
 ABCとXYZは、どちらも世界の物体です。どちらも、子どもの心に喜びをもたらします。
 ```
+
+# 6. MCP Server for Ontology
+
+<img src="https://github.com/developer-onizuka/Ontology/blob/main/biology.png" width="480"><br>
+
+<img src="https://github.com/developer-onizuka/Ontology/blob/main/technology.png" width="480"><br>
+
+<img src="https://github.com/developer-onizuka/Ontology/blob/main/ClaudeDesktop.png" width="480"><br>
+
