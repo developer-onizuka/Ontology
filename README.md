@@ -158,9 +158,9 @@ ABCとXYZは、どちらも世界の物体です。どちらも、子どもの�
 
 # 6. MCP Server for Ontology
 
-<img src="https://github.com/developer-onizuka/Ontology/blob/main/biology.png" width="480"><br>
+<img src="https://github.com/developer-onizuka/Ontology/blob/main/biology.png" width="720"><br>
 
-<img src="https://github.com/developer-onizuka/Ontology/blob/main/technology.png" width="480"><br>
+<img src="https://github.com/developer-onizuka/Ontology/blob/main/technology.png" width="720"><br>
 
-<img src="https://github.com/developer-onizuka/Ontology/blob/main/ClaudeDesktop.png" width="480"><br>
+<img src="https://github.com/developer-onizuka/Ontology/blob/main/claudeDesktop.png" width="720"><br>
 
