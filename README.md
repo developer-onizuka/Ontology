@@ -179,7 +179,19 @@ LoadBalancerで取得した外部IPを以下コマンドに与えてInspectorを
 ```
 npx @modelcontextprotocol/inspector http://192.168.33.4:5001/sse
 ```
-test.jsonに示すようなJson形式を与えて、動作が妥当なものかを検証します。
+以下に示すようなJson形式の入力を与えて、動作が妥当なものかを検証します。
+```
+{
+  "domain": "biology",
+  "entity_names": ["ABC", "XYZ"]
+}
+```
+```
+{
+  "domain": "technology",
+  "entity_names": ["ABC", "XYZ"]
+}
+```
 <img src="https://github.com/developer-onizuka/Ontology/blob/main/biology.png" width="720"><br>
 
 <img src="https://github.com/developer-onizuka/Ontology/blob/main/technology.png" width="720"><br>
