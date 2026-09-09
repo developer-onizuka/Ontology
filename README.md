@@ -1,9 +1,9 @@
 # 1. Goal
-HermiT 理由付けエンジン（Owlready2）による OWL オントロジーの論理推論と、LangGraph / Ollama（`llama3.2:3b`）によるテキスト記述・生成を組み合わせた **Neuro-Symbolic AI エージェント** の実験リポジトリです。
+HermiT 理由付けエンジン（Owlready2）による OWL オントロジーの論理推論と、Model Context Protocol (MCP) / LangGraph / Ollama（`llama3.2:3b`）を組み合わせた **Neuro-Symbolic AI エージェントおよび MCP サーバー** の総合的な実験・実用リポジトリです。
 
-シンボリックAI（論理推論）によって未定義の個体（`Thing`）の概念（クラス）を動的に確定させ、その分類情報に基づいて LLM がコンテキストに沿った表現を自動生成します。
+シンボリックAI（論理推論）によって未定義の個体（`Thing`）の概念（クラス）を動的に確定させ、その分類情報を LLM や外部の MCP クライアント（Claude Desktop / MCP Inspector）へ提供します。
+リクエストごとに独立した `World` を動的に生成・破棄するマルチワールド・アーキテクチャを採用することで、複数ドメイン（生物・IT技術など）間における完全なデータ分離とスケーラブルな推論環境を実現しています。
 
----
 
 # 2. Overview
 
