@@ -4,7 +4,7 @@ HermiT 理由付けエンジン（Owlready2）による OWL オントロジー�
 シンボリックAI（論理推論）によって未定義の個体（`Thing`）の概念（クラス）を動的に確定させ、その分類情報を LLM や外部の MCP クライアント（Claude Desktop / MCP Inspector）へ提供します。
 リクエストごとに独立した `World` を動的に生成・破棄するマルチワールド・アーキテクチャを採用することで、複数ドメイン（生物・IT技術など）間における完全なデータ分離とスケーラブルな推論環境を実現しています。
 
----
+
 
 # 2. Overview
 
@@ -20,7 +20,7 @@ HermiT 理由付けエンジン（Owlready2）による OWL オントロジー�
 | **`snake-food.py`** | `eats` (domain: `Snake`, range: `Food`) | `ABC`: `Thing`<br>`XYZ`: `Thing` | `ABC`: **`Snake`**<br>`XYZ`: **`Food`** |
 | **`it-tech.py`** | `runsOn` (domain: `Language`, range: `OperatingSystem`) | `ABC`: `Thing`<br>`XYZ`: `Thing` | `ABC`: **`Language`**<br>`XYZ`: **`OperatingSystem`** |
 
----
+
 
 # 3. Setup
 
