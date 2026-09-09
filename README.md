@@ -157,10 +157,54 @@ ABCとXYZは、どちらも世界の物体です。どちらも、子どもの�
 ```
 
 # 6. MCP Server for Ontology
+本リポジトリの推論ロジックを、MCP を介して Claude Desktop や npx @modelcontextprotocol/inspector からリモートツールとして利用できる MCP サーバー（ontology-mcp.py）を実装しています。リクエストごとに独立した World() インスタンスを動的に生成・破棄するマルチワールド・アーキテクチャを採用しており、複数ドメイン間のデータ汚染や推論結果の混同を完全に防止しています。
 
+### 6-1. MCP　サーバーの実装について
+- 完全なドメイン分離: リクエストごとに World() を生成するため、biology と technology の世界がメモリ上で完全に隔離されます。
+
+- FastMCP による迅速な実装: 高速な SSE（Server-Sent Events）トランスポートに対応し、外部クライアントからのツール呼び出しをシームレスに処理します。
+
+### 6-2. MCP　サーバーをKubernetesで実行
+```
+git clone https://github.com/developer-onizuka/Ontology
+cd Ontology
+kubectl apply -f ontology-mcp.yaml
+```
+```
+vagrant@master:~/Ontology/mcp$ kubectl get svc
+NAME                 TYPE           CLUSTER-IP       EXTERNAL-IP    PORT(S)             AGE
+svc-ontology-mcp     LoadBalancer   10.99.239.145    192.168.33.4   5001:32133/TCP      14m
+```
+LoadBalancerで取得した外部IPを以下コマンドに与えてInspectorを起動します。
+```
+npx @modelcontextprotocol/inspector http://192.168.33.4:5001/sse
+```
+test.jsonに示すようなJson形式を与えて、動作が妥当なものかを検証します。
 <img src="https://github.com/developer-onizuka/Ontology/blob/main/biology.png" width="720"><br>
 
 <img src="https://github.com/developer-onizuka/Ontology/blob/main/technology.png" width="720"><br>
 
+### 6-3. ClaudeDesktopとの連携
+claude_desktop_config.jsonに以下を追加し、ClaudeDesktopを再起動します。
+```
+  "mcpServers": {
+    "ontology": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "http://192.168.33.4:5001/sse",
+        "--allow-http"
+      ]
+    }
+  },
+```
+以下のようなプロンプトを与えて、動作を確認します。
+```
+ABCとXYZという個体について、オントロジーの情報を調べて100字程度の子供向け物語を作成してください。ただしドメインはbiologyとします。
+```
+```
+ABCとXYZという個体について、オントロジーの情報を調べて100字程度の子供向け物語を作成してください。ただしドメインはtechnologyとします。
+```
 <img src="https://github.com/developer-onizuka/Ontology/blob/main/claudeDesktop.png" width="720"><br>
 
